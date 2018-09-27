@@ -1,3 +1,17 @@
+a:link,
+a:visited,
+a:hover,
+a:active{
+  text-decoration: none;
+}
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
 .body_bg{
   background-color: #222D32;
 }
@@ -14,7 +28,65 @@
 
 
 /* 主页 */
+/* 侧边栏样式 */
 .lt_aside{
   position: fixed;
-  
+  left: 0;
+  top: 0;
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;  
+}
+.lt_aside .brand{
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  background-color: #367FA9;
+  text-align: center;
+}
+.lt_aside .brand a{
+  color: aliceblue;
+}
+.lt_aside .users{
+  padding-top: 30px;
+  height: 180px;
+}
+.lt_aside .users img{
+  width: 80px;
+  height: 80px;
+  border-radius:50%;
+  display: block;
+  margin: 0 auto;
+ 
+
+}
+.lt_aside .users p{
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+   height: 40px;
+   line-height: 40px;
+}
+.lt_aside .nav a{
+  padding-left: 40px;
+  /* margin-top: ; */
+  border-left: 3px solid transparent;
+}
+.lt_aside .nav  .current{
+  background-color: #1D1F21;
+  border-left: 3px solid #006699;
+}
+.lt_aside .nav  .child a{
+  padding-left: 60px;
+ 
+}
+.lt_aside .nav i{
+ margin-right:3px ;
+}
+.lt_aside .nav a{
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  width: 100%;
+  display: block;
 }
