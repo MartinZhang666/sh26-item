@@ -35,6 +35,7 @@ a:active{
   top: 0;
   width: 180px;
   height: 100%;
+  z-index: 999;
   background-color: #222D32;  
 }
 .lt_aside .brand{
@@ -89,4 +90,39 @@ a:active{
   color: #fff;
   width: 100%;
   display: block;
+}
+
+
+
+.lt_topbar{
+  height: 50px;
+  width: 100%;
+  background-color: #3C8DBC;
+  line-height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-left: 180px;
+}
+.lt_topbar a{
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+.lt_topbar i{
+ color: #fff;
+}
+
+
+
+
+.lt_main{
+  padding-left: 180px;
+  padding-top: 50px;
+  background-color: lime;
+  height: 1000px;
+}
+.lt_main .breadcrumb{
+  margin-top: 30px;
 }
