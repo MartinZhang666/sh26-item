@@ -9,8 +9,11 @@ a:active{
   padding: 0;
   list-style: none;
 }
-
-
+.table.table-bordered tr th,
+.table.table-bordered tr td{
+ text-align: center; 
+ vertical-align: middle;
+}
 
 .body_bg{
   background-color: #222D32;
@@ -145,4 +148,13 @@ a:active{
   width: 48%;
   height: 400px;
   /* background-color: pink; */
+}
+
+
+
+
+/* biaoge */
+
+.lt_main .table{
+
 }
