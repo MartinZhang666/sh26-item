@@ -32,7 +32,23 @@ $(function(){
  $('.icon_logout').click(function(){
    $('#logoutModal').modal('show');
  })
-
+$('#logoutBtn').click(function(){
+  // location.herf ="login.html";
+  // alert(1);
+  $.ajax({
+    type:'get',
+    url:'/employee/employeeLogout',
+    dataType:'json',
+    success:function(info){
+      // console.log(info);
+      if(info.success){
+        location.href ="login.html";
+      }
+    }
+   
+    
+  })
+})
 
 
 })
