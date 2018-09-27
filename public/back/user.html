@@ -51,27 +51,24 @@
 
         <!-- 表格 -->
         <table class="table table-bordered">
-          <thead>
-            <tr>				
-              <th>序号</th>
-              <th>用户名</th>
-              <th>手机号</th>
-              <th>状态</th>
-              <th>操作</th>
-            </tr>			
-
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>itcast</td>
-              <td>15102324243</td>
-              <td>正常</td>
-              <td><button class="btn btn-danger">禁用</button></td>
-            </tr>
-          </tbody>
-        </table>
-
+            <thead>
+              <tr>				
+                <th>序号</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>			
+  
+            </thead>
+            <tbody>
+            <!-- 挖坑 --> 
+            </tbody>
+          </table>
+       <!-- 3.Xde banbern  -->
+       <div class="text-right">
+       <ul id="paginator" ></ul>
+      </div>
 
    </div>
  </div>
@@ -95,11 +92,38 @@
   </div><!-- /.modal -->
 
 </body>
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+        <tr>
+          <td>{{i+1+(page-1) *size}}</td>
+          <td>{{v.username}}</td>
+          <td>{{v.mobile}}</td>
+          <td>{{v.isDelete==1?'正常':'禁用'}}</td>
+
+          <td>
+            {{if v.isDelete===1}}
+            
+            <button class="btn btn-danger">禁用</button>
+            {{/if}}
+            {{if v.isDelete===0}}
+            <button class="btn btn-success">启用</button> 
+            {{/if}} 
+          </td>
+           
+        </tr>
+   
+{{/each}}
+
+
+</script>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./js/checkLogin.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="./js/user.js"></script>
 
 
 
