@@ -130,10 +130,19 @@ a:active{
 .lt_main{
   padding-left: 180px;
   padding-top: 50px;
-  background-color: lime;
+  /* background-color: lime; */
   height: 1000px;
   transition: all 1s;
 }
 .lt_main.hidemenu{
   padding-left: 0;
+}
+
+
+
+.echarts_1,
+.echarts_2{
+  width: 48%;
+  height: 400px;
+  background-color: pink;
 }
