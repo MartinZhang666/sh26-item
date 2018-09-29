@@ -48,6 +48,29 @@
           <li  class="active">分类管理 </li>
           <li class="active">二级分类</li>
         </ol>
+        <div class="lt_content">
+            <button class="btn btn-default mb_20">添加分类</button>
+            <table class="table table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th width="10%">序号</th>
+                    <th width="30%">一级分类名</th>
+                    <th width="30%">二级分类名</th>
+                    <th width="30%">二级分类LOGO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- 挖坑 -->
+                    <tr>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                    </tr>
+                </tbody>
+      
+              </table>
+        </div>  
    </div>
  </div>
   <!-- motaikuang -->
@@ -65,16 +88,42 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
 
 </body>
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+        <tr>
+          <td>{{i+1+(page-1) *size}}</td>
+          <td>{{v.username}}</td>
+          <td>{{v.mobile}}</td>
+          <td>{{v.mobile}}</td>
+          <td >{{v.isDelete==1?'正常':'禁用'}}</td>
+
+          <td data-id='{{v.id}}'>
+            {{if v.isDelete===1}}
+            
+            <button class="btn btn-danger">禁用</button>
+            {{/if}}
+            {{if v.isDelete===0}}
+            <button class="btn btn-success">启用</button> 
+            {{/if}} 
+          </td>
+           
+        </tr>
+   
+{{/each}}
+
+
+</script>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./js/checkLogin.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/second.js"></script>
 
 
 
