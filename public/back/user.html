@@ -87,10 +87,28 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
 
+  <!-- 启用禁用模态框 -->
+ <div class="modal  role="dialog" id="userModal">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+       <p class="red"> <i class="glyphicon glyphicon-info-sign"></i>你确定要执行此操作吗？&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="submitBtn">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 <script type="text/html" id="tpl">
   {{each rows v i}}
@@ -98,9 +116,9 @@
           <td>{{i+1+(page-1) *size}}</td>
           <td>{{v.username}}</td>
           <td>{{v.mobile}}</td>
-          <td>{{v.isDelete==1?'正常':'禁用'}}</td>
+          <td >{{v.isDelete==1?'正常':'禁用'}}</td>
 
-          <td>
+          <td data-id='{{v.id}}'>
             {{if v.isDelete===1}}
             
             <button class="btn btn-danger">禁用</button>

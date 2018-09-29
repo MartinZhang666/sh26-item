@@ -4,6 +4,8 @@ $(function(){
   var currentPage = 1;
   // 一页多少条
   var pageSize = 5;
+  var currentId;
+  var isDelete;
 render()
 function render(){
 
@@ -35,7 +37,7 @@ $.ajax({
 
           // 当页面被点击时触发
           onPageClicked: function( a, b, c, page ) {
-            // page 当前点击的页码
+ a           // page 当前点击的页码
             currentPage = page;
             // 调用 render 重新渲染页面
             render();
@@ -48,44 +50,39 @@ $.ajax({
 
 
   // 2. 通过事件委托给 按钮注册点击事件
-  // $('.lt_content tbody').on("click", ".btn", function() {
-  //   console.log( "呵呵额" );
-  //   // 弹出模态框
-  //   $('#userModal').modal("show");
+ $('tbody').on('click','.btn',function(){
+  //  alert(1);
+  $('#userModal').modal('show');
+  currentId= $(this).parent().data('id');
+  // console.log(id);
+  isDelete = $(this).hasClass('btn-danger')?'0':'1';
+ })
+// 点击模态框的确认按钮 实现数据更改
+  $('#submitBtn').on('click',function(){
+    // alert(1);
+    // 向后台获取发送数据
+  $.ajax({
+    type:'POST',
+    url:'/user/updateUser',
+    data:{
+      id:currentId,
+      isDelete:isDelete
+    },
+    dataType:'json',
+    success:function(info){
+      console.log(info);
+      if(info.success){
+        // 关闭模态框
+     $('#userModal').modal('hide'); 
+           // 渲染
+           render();
+      }
+   
 
-  //   // 用户 id
-  //   var id = $(this).parent().data("id");
-  //   // 获取将来需要将用户置成什么状态
-  //   var isDelete = $(this).hasClass("btn-success") ? 1 : 0;
-  //   console.log( id );
-  //   console.log(isDelete);
+    }
 
-  //   // 先解绑, 再绑定事件, 可以保证只有一个事件绑定在 按钮上
-  //   $('#submitBtn').off("click").on("click", function() {
-
-  //     $.ajax({
-  //       type: "post",
-  //       url: "/user/updateUser",
-  //       data: {
-  //         id: id,
-  //         isDelete: isDelete
-  //       },
-  //       success: function( info ) {
-  //         console.log( info )
-  //         if ( info.success ) {
-  //           // 关闭模态框
-  //           $('#userModal').modal("hide");
-  //           // 重新渲染
-  //           render();
-  //         }
-  //       }
-  //     })
-
-
-  //   })
-  // })
-
-
+    })
+  })
 
 
 })
