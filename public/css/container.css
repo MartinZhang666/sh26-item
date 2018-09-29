@@ -163,3 +163,6 @@ a:active{
 .mb_20 {
   margin-bottom: 20px;
 }
+#secondTpl img{
+  height: 85px;
+}
